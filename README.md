@@ -5,7 +5,7 @@
 
 Universal AI-agent skills for **creating, editing, validating, and packaging
 [Yomitan](https://github.com/yomidevs/yomitan) dictionaries** — installable in
-80+ harnesses (OpenCode, Claude Code, Codex, OpenClaw, Antigravity, Cursor, …)
+80+ harnesses (OpenCode, Claude Code, Codex, Hermes, OpenClaw, Antigravity, Cursor, …)
 via the open [`skills`](https://github.com/vercel-labs/skills) CLI.
 
 ## Install
