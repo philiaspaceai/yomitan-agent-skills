@@ -44,3 +44,10 @@ No npm dependencies — only Node + system `zip`/`unzip`.
 ## Contributing
 
 See [AGENTS.md](./AGENTS.md).
+
+## Acknowledgements
+
+Built for [Yomitan](https://github.com/yomidevs/yomitan) by the [Yomidevs](https://github.com/yomidevs)
+community (successor to Yomichan) — dictionary format reference:
+[`yomidevs/yomitan/ext/data/schemas`](https://github.com/yomidevs/yomitan/tree/master/ext/data/schemas).
+This is an unofficial community project, not affiliated with or endorsed by Yomidevs.
