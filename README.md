@@ -1,5 +1,8 @@
 # yomitan-agent-skills
 
+[![License: MIT](https://img.shields.io/github/license/philiaspaceai/yomitan-agent-skills?style=for-the-badge&labelColor=000000)](./LICENSE)
+[![skills.sh](https://skills.sh/b/philiaspaceai/yomitan-agent-skills?style=for-the-badge)](https://skills.sh/philiaspaceai/yomitan-agent-skills)
+
 Universal AI-agent skills for **creating, editing, validating, and packaging
 [Yomitan](https://github.com/yomidevs/yomitan) dictionaries** — installable in
 80+ harnesses (OpenCode, Claude Code, Codex, OpenClaw, Antigravity, Cursor, …)
