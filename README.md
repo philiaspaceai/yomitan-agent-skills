@@ -54,4 +54,5 @@ See [AGENTS.md](./AGENTS.md).
 Built for [Yomitan](https://github.com/yomidevs/yomitan) by the [Yomidevs](https://github.com/yomidevs)
 community (successor to Yomichan) — dictionary format reference:
 [`yomidevs/yomitan/ext/data/schemas`](https://github.com/yomidevs/yomitan/tree/master/ext/data/schemas).
-This is an unofficial community project, not affiliated with or endorsed by Yomidevs.
+An official project of the Philia Space Community. Unofficial with respect to
+Yomitan — not affiliated with or endorsed by Yomidevs.
