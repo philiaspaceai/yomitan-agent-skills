@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/github/license/philiaspaceai/yomitan-agent-skills?style=for-the-badge&labelColor=000000)](./LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/philiaspaceai/yomitan-agent-skills?style=for-the-badge&labelColor=000000)](https://skills.sh/philiaspaceai/yomitan-agent-skills)
 
-> Baca dalam bahasa Inggris: [README.md](./README.md)
+> Baca dalam bahasa Inggris: [README.md](./README.md) · 日本語版: [README.ja.md](./README.ja.md)
 
 Skill AI-agent universal untuk **membuat, mengedit, memvalidasi, dan mengemas
 kamus [Yomitan](https://github.com/yomidevs/yomitan)** — bisa dipasang di
