@@ -16,24 +16,19 @@
 
 ## インストール
 
-### 方法A — ターミナル不要（AIにコピペするだけ）
+### 方法A — ターミナル不要（AIにインストールさせる）
 
 ターミナルが使えなくても大丈夫です。下のメッセージをコピーして、
-AIチャット（Claude、ChatGPT、Geminiなど）に貼り付け、やりたいことを説明してください。
-例：*「辞書に新しい単語を追加したい」*。
+お使いのAIエージェント（Claude Code、OpenCode、Codex、Hermesなど）に貼り付けてください。
+エージェントが代わりにインストールを実行します。
 
 ```
-I want to work on a Yomitan dictionary. Please read and follow this skill:
-https://raw.githubusercontent.com/philiaspaceai/yomitan-agent-skills/main/skills/yomitan-dictionary/SKILL.md
-Also read the supporting docs in the same repo under skills/yomitan-dictionary/references/
-(dictionary-format.md, frequency-pitch-meta.md, validation-packaging.md).
-Then ask me what I need.
+私の環境にYomitanエージェントスキルをインストールしてください。次のコマンドを実行してください：
+npx skills add philiaspaceai/yomitan-agent-skills
+インストール後、どのスキルがインストールされたか教えて、使える状態か確認してください。
 ```
 
-> 注意：チャットのみのAIはヘルパースクリプトを実行できません。
-> 大規模な編集（数千件のエントリ）には、コーディングエージェントを使う方法Bがおすすめです。
-
-### 方法B — ターミナル（`npx skills`、コーディングエージェント向け）
+### 方法B — ターミナル（自分でインストールする）
 
 ```bash
 npx skills add philiaspaceai/yomitan-agent-skills

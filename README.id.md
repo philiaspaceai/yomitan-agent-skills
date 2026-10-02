@@ -16,24 +16,19 @@ Dibuat dengan penuh cinta oleh **Philia Space Community**.
 
 ## Instalasi
 
-### Opsi A — Tanpa terminal (tinggal copy-paste ke AI)
+### Opsi A — Tanpa terminal (biar AI yang menginstal)
 
-Tidak bisa pakai terminal? Santai. Copy pesan di bawah ini,
-paste ke chat AI (Claude, ChatGPT, Gemini, dll.), lalu jelaskan maumu —
-misalnya *"aku mau nambahin kata baru ke kamusku"*.
+Tidak bisa pakai terminal? Santai. Copy pesan di bawah ini lalu paste ke
+AI agent kamu (Claude Code, OpenCode, Codex, Hermes, dll.) — biar dia yang
+menjalankan instalasinya untukmu.
 
 ```
-I want to work on a Yomitan dictionary. Please read and follow this skill:
-https://raw.githubusercontent.com/philiaspaceai/yomitan-agent-skills/main/skills/yomitan-dictionary/SKILL.md
-Also read the supporting docs in the same repo under skills/yomitan-dictionary/references/
-(dictionary-format.md, frequency-pitch-meta.md, validation-packaging.md).
-Then ask me what I need.
+Tolong instalkan Yomitan agent skills ke setup-ku dengan menjalankan:
+npx skills add philiaspaceai/yomitan-agent-skills
+Setelah terinstal, beri tahu aku skill apa saja yang terpasang dan pastikan semuanya siap dipakai.
 ```
 
-> Catatan: AI yang hanya lewat chat tidak bisa menjalankan script pembantu,
-> jadi untuk edit besar (ribuan entri) Opsi B dengan coding agent jauh lebih mantap.
-
-### Opsi B — Terminal (`npx skills`, untuk coding agent)
+### Opsi B — Terminal (jalankan sendiri instalasinya)
 
 ```bash
 npx skills add philiaspaceai/yomitan-agent-skills
