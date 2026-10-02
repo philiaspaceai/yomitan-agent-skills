@@ -14,6 +14,25 @@ Made with care by the **Philia Space Community**.
 
 ## Install
 
+### Option A — No terminal needed (just copy-paste to your AI)
+
+Don't know how to use a terminal? No problem. Copy the message below,
+paste it into your AI chat (Claude, ChatGPT, Gemini, etc.), and describe
+what you want — e.g. *"I want to add new words to my dictionary"*.
+
+```
+I want to work on a Yomitan dictionary. Please read and follow this skill:
+https://raw.githubusercontent.com/philiaspaceai/yomitan-agent-skills/main/skills/yomitan-dictionary/SKILL.md
+Also read the supporting docs in the same repo under skills/yomitan-dictionary/references/
+(dictionary-format.md, frequency-pitch-meta.md, validation-packaging.md).
+Then ask me what I need.
+```
+
+> Note: chat-only AIs can't run the helper scripts, so for big edits
+> (thousands of entries) Option B with a coding agent works far better.
+
+### Option B — Terminal (`npx skills`, for coding agents)
+
 ```bash
 npx skills add philiaspaceai/yomitan-agent-skills
 ```
