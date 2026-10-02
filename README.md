@@ -10,6 +10,8 @@ Universal AI-agent skills for **creating, editing, validating, and packaging
 80+ harnesses (OpenCode, Claude Code, Codex, Hermes, OpenClaw, Antigravity, Cursor, …)
 via the open [`skills`](https://github.com/vercel-labs/skills) CLI.
 
+Made with care by the **Philia Space Community**.
+
 ## Install
 
 ```bash
