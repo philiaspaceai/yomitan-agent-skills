@@ -1,5 +1,7 @@
 # yomitan-agent-skills
 
+![yomitan-agent-skills banner](./assets/banner.png)
+
 [![License: MIT](https://img.shields.io/github/license/philiaspaceai/yomitan-agent-skills?style=for-the-badge&labelColor=000000)](./LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/philiaspaceai/yomitan-agent-skills?style=for-the-badge&labelColor=000000)](https://skills.sh/philiaspaceai/yomitan-agent-skills)
 
