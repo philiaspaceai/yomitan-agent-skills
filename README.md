@@ -43,6 +43,20 @@ Or install just the dictionary skill into specific agents:
 npx skills add philiaspaceai/yomitan-agent-skills --skill yomitan-dictionary -a opencode
 ```
 
+### Install commands per AI agent
+
+| AI Agent | Command |
+|---|---|
+| Hermes | `npx skills add philiaspaceai/yomitan-agent-skills -a hermes-agent` |
+| Claude Code | `npx skills add philiaspaceai/yomitan-agent-skills -a claude-code` |
+| Codex | `npx skills add philiaspaceai/yomitan-agent-skills -a codex` |
+| OpenCode | `npx skills add philiaspaceai/yomitan-agent-skills -a opencode` |
+| Antigravity | `npx skills add philiaspaceai/yomitan-agent-skills -a antigravity` |
+
+And many more — the `skills` CLI supports 80+ agents
+(full list [here](https://github.com/vercel-labs/skills#supported-agents)).
+To install everywhere at once: `npx skills add philiaspaceai/yomitan-agent-skills -a '*'`.
+
 ## What's inside
 
 | Path | What |
