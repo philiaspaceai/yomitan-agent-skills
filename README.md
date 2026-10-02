@@ -5,6 +5,8 @@
 [![License: MIT](https://img.shields.io/github/license/philiaspaceai/yomitan-agent-skills?style=for-the-badge&labelColor=000000)](./LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/philiaspaceai/yomitan-agent-skills?style=for-the-badge&labelColor=000000)](https://skills.sh/philiaspaceai/yomitan-agent-skills)
 
+> Baca dalam bahasa Indonesia: [README.id.md](./README.id.md)
+
 Universal AI-agent skills for **creating, editing, validating, and packaging
 [Yomitan](https://github.com/yomidevs/yomitan) dictionaries** — installable in
 80+ harnesses (OpenCode, Claude Code, Codex, Hermes, OpenClaw, Antigravity, Cursor, …)
