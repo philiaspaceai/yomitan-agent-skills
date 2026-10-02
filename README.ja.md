@@ -63,8 +63,10 @@ npx skills add philiaspaceai/yomitan-agent-skills --skill yomitan-dictionary -a 
 
 | パス | 内容 |
 |---|---|
-| `skills/yomitan-dictionary/` | スキル本体：`SKILL.md` ＋ 依存関係ゼロの `scripts/yomitan.mjs` ＋ `references/` ドキュメント |
+| `skills/yomitan-dictionary/` | 仕組みのスキル：`SKILL.md` ＋ 依存関係ゼロの `scripts/yomitan.mjs` ＋ `references/` ドキュメント |
+| `skills/japanese-gloss-craft/` | 意味品質のスキル：`SKILL.md` ＋ `references/` ドキュメント（設計上スクリプトなし） |
 | `agents/yomitan-dictionary-agent.md` | ハーネス非依存のサブエージェント定義 |
+| `agents/japanese-gloss-craft-agent.md` | ハーネス非依存のサブエージェント定義 |
 
 ## クイックスタート（エージェント向け）
 

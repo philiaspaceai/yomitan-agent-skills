@@ -56,31 +56,29 @@ function readJsonFile(path) {
   }
 }
 
-// Resolve <zip|dir> into { mode, files: Map<name, text>, dir? }.
-// For zip, files are read via unzip. For dir, banks must be at root.
-function loadDictionary(target) {
-  const files = new Map();
+// List data filenames at the archive/dir root (banks must be at root).
+// Files are read one at a time via readText() so big dictionaries
+// (100MB+) never sit fully in memory.
+function listNames(target) {
   if (isZip(target)) {
     if (!existsSync(target)) fail(`not found: ${target}`);
-    for (const name of zipList(target)) {
-      if (name.endsWith("/") || name.includes("/")) continue; // banks must be at root
-      if (!name.endsWith(".json") && name !== "styles.css") continue;
-      files.set(name, zipRead(target, name));
-    }
-    return { mode: "zip", files };
+    return zipList(target).filter(
+      (n) => !n.endsWith("/") && !n.includes("/") && (n.endsWith(".json") || n === "styles.css")
+    );
   }
   if (!existsSync(target) || !existsSync(join(target, "index.json"))) {
     fail(`not a dictionary dir (missing index.json): ${target}`);
   }
-  for (const name of readdirSync(target)) {
-    const full = join(target, name);
-    if (name.endsWith(".json") || name === "styles.css") {
-      try {
-        files.set(name, readFileSync(full, "utf8"));
-      } catch { /* skip directories etc. */ }
-    }
+  return readdirSync(target).filter((n) => n.endsWith(".json") || n === "styles.css");
+}
+
+function readText(target, name) {
+  if (isZip(target)) return zipRead(target, name);
+  try {
+    return readFileSync(join(target, name), "utf8");
+  } catch {
+    fail(`cannot read ${name} in ${target}`);
   }
-  return { mode: "dir", files, dir: resolve(target) };
 }
 
 function checkEntry(kind, entry, file, i, errors) {
@@ -107,12 +105,12 @@ function checkEntry(kind, entry, file, i, errors) {
 
 export function validateDictionary(target) {
   const errors = [];
-  const { files } = loadDictionary(target);
+  const names = listNames(target);
 
-  if (!files.has("index.json")) return { ok: false, errors: ["missing index.json at root"], counts: {} };
+  if (!names.includes("index.json")) return { ok: false, errors: ["missing index.json at root"], counts: {} };
   let index;
   try {
-    index = JSON.parse(files.get("index.json"));
+    index = JSON.parse(readText(target, "index.json"));
   } catch (e) {
     return { ok: false, errors: [`index.json: invalid JSON (${e.message})`], counts: {} };
   }
@@ -122,7 +120,7 @@ export function validateDictionary(target) {
 
   // Bank sequence must start at 1 and be contiguous per kind.
   const seen = new Map();
-  for (const name of files.keys()) {
+  for (const name of names) {
     const m = BANK_RE.exec(name);
     if (name.endsWith(".json") && name !== "index.json" && !m) {
       errors.push(`${name}: unexpected filename (must be index.json, *_bank_N.json, or styles.css)`);
@@ -141,12 +139,12 @@ export function validateDictionary(target) {
   }
 
   const counts = {};
-  for (const [name, text] of files) {
+  for (const name of names) {
     const m = BANK_RE.exec(name);
     if (!m) continue;
     let data;
     try {
-      data = JSON.parse(text);
+      data = JSON.parse(readText(target, name));
     } catch (e) {
       errors.push(`${name}: invalid JSON (${e.message})`);
       continue;
@@ -161,7 +159,7 @@ export function validateDictionary(target) {
     if (data.length === 0) errors.push(`${name}: bank is empty`);
   }
 
-  if ([...files.keys()].filter((n) => BANK_RE.test(n)).length === 0) {
+  if (names.filter((n) => BANK_RE.test(n)).length === 0) {
     errors.push("no *_bank_N.json files found");
   }
   return { ok: errors.length === 0, errors, counts, index };
@@ -204,23 +202,26 @@ function cmdPack(dir, outZip) {
   console.log(`Packed ${absOut}`);
 }
 
-function allTermEntries(target) {
-  const { files } = loadDictionary(target);
-  const out = [];
-  for (const [name, text] of [...files.entries()].sort()) {
-    const m = BANK_RE.exec(name);
-    if (!m || m[1] !== "term_bank") continue;
-    const data = JSON.parse(text);
-    data.forEach((e, i) => out.push({ file: name, index: i, entry: e }));
-  }
-  return out;
-}
-
+// Stream term banks one file at a time; only matches are kept in memory,
+// so lookups stay light even on 100MB+ dictionaries.
 function cmdGet(target, term, reading) {
   if (!target || !term) fail(usage);
-  const hits = allTermEntries(target).filter(
-    ({ entry }) => entry[0] === term && (!reading || entry[1] === reading)
-  );
+  const hits = [];
+  for (const name of listNames(target).sort()) {
+    const m = BANK_RE.exec(name);
+    if (!m || m[1] !== "term_bank") continue;
+    let data;
+    try {
+      data = JSON.parse(readText(target, name));
+    } catch (e) {
+      fail(`${name}: invalid JSON (${e.message})`);
+    }
+    data.forEach((e, i) => {
+      if (Array.isArray(e) && e[0] === term && (!reading || e[1] === reading)) {
+        hits.push({ file: name, index: i, entry: e });
+      }
+    });
+  }
   console.log(JSON.stringify(hits, null, 2));
 }
 

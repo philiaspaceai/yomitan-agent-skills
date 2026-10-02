@@ -12,12 +12,16 @@ npx skills add philiaspaceai/yomitan-agent-skills
 ## Repo layout
 
 ```
-skills/yomitan-dictionary/
+skills/yomitan-dictionary/     # skill 1: mechanics (validate|unpack|pack|get|add|remove)
   SKILL.md                 # skill definition (keep <500 lines)
-  scripts/yomitan.mjs      # zero-dep CLI: validate|unpack|pack|get|add|remove
+  scripts/yomitan.mjs      # zero-dep CLI
   references/              # on-demand docs (format, meta, validation)
+skills/japanese-gloss-craft/  # skill 2: meaning quality (no scripts by design)
+  SKILL.md                 # skill definition (keep <500 lines)
+  references/              # on-demand docs (sources, senses, gloss craft, handoff)
 agents/
   yomitan-dictionary-agent.md  # harness-agnostic subagent definition
+  japanese-gloss-craft-agent.md
 ```
 
 ## Rules for contributors (human or agent)

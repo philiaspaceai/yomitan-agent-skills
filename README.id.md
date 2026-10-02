@@ -63,8 +63,10 @@ Untuk pasang ke semuanya sekaligus: `npx skills add philiaspaceai/yomitan-agent-
 
 | Path | Isi |
 |---|---|
-| `skills/yomitan-dictionary/` | Skill-nya: `SKILL.md` + `scripts/yomitan.mjs` tanpa dependency + dokumen `references/` |
+| `skills/yomitan-dictionary/` | Skill mekanis: `SKILL.md` + `scripts/yomitan.mjs` tanpa dependency + dokumen `references/` |
+| `skills/japanese-gloss-craft/` | Skill kualitas makna: `SKILL.md` + dokumen `references/` (tanpa scripts, by design) |
 | `agents/yomitan-dictionary-agent.md` | Definisi subagent yang netral untuk semua harness |
+| `agents/japanese-gloss-craft-agent.md` | Definisi subagent yang netral untuk semua harness |
 
 ## Cara pakai cepat (untuk agent)
 

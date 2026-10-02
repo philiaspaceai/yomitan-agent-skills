@@ -63,8 +63,10 @@ To install everywhere at once: `npx skills add philiaspaceai/yomitan-agent-skill
 
 | Path | What |
 |---|---|
-| `skills/yomitan-dictionary/` | The skill: `SKILL.md` + zero-dependency `scripts/yomitan.mjs` + `references/` docs |
+| `skills/yomitan-dictionary/` | The mechanics skill: `SKILL.md` + zero-dependency `scripts/yomitan.mjs` + `references/` docs |
+| `skills/japanese-gloss-craft/` | The meaning-quality skill: `SKILL.md` + `references/` docs (no scripts by design) |
 | `agents/yomitan-dictionary-agent.md` | Harness-agnostic subagent definition |
+| `agents/japanese-gloss-craft-agent.md` | Harness-agnostic subagent definition |
 
 ## Quick use (for agents)
 
