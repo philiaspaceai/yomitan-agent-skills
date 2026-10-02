@@ -1,0 +1,7 @@
+{
+  "name": "yomitan-agent-skills",
+  "version": "0.1.0",
+  "description": "Universal AI agent skills for creating, editing, validating, and packaging Yomitan dictionaries",
+  "type": "module",
+  "license": "MIT"
+}
