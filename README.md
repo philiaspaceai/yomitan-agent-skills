@@ -27,11 +27,12 @@ npm install yomitan-tools
 ## Layout
 
 ```text
-SKILL.md            # the skill (<400 words, points into references/)
-references/
-  api.md            # full method table, options, standalone functions
-  tuples.md         # exact tuple shapes + valid examples
-  workflows.md      # staged-save, huge-dict, saveAs, v1 quirk, media rules
+skills/yomitan-agent-skills/
+  SKILL.md            # the skill (<400 words, points into references/)
+  references/
+    api.md            # full method table, options, standalone functions
+    tuples.md         # exact tuple shapes + valid examples
+    workflows.md      # staged-save, huge-dict, saveAs, v1 quirk, media rules
 ```
 
 ## License
