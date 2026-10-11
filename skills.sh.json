@@ -1,0 +1,13 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "groupings": [
+    {
+      "title": "Yomitan dictionary skills",
+      "description": "File-level mechanics and language-level judgment for working with Yomitan dictionaries.",
+      "skills": [
+        "yomitan-tools",
+        "lexicography"
+      ]
+    }
+  ]
+}

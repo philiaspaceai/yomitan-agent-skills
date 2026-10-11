@@ -27,12 +27,14 @@ npm install yomitan-tools
 ## Layout
 
 ```text
-skills/yomitan-agent-skills/
-  SKILL.md            # the skill (<400 words, points into references/)
+skills/yomitan-tools/
+  SKILL.md            # file-level mechanics: search, render, edit, validate (<400 words)
   references/
-    api.md            # full method table, options, standalone functions
-    tuples.md         # exact tuple shapes + valid examples
-    workflows.md      # staged-save, huge-dict, saveAs, v1 quirk, media rules
+    api.md            # methods, options, standalone functions
+    tuples.md         # tuple shapes + examples
+    workflows.md      # staged-save, huge dicts, saveAs, v1 quirk, media
+skills/lexicography/
+  SKILL.md            # language-level judgment: senses, equivalents, labels, examples
 ```
 
 ## License
