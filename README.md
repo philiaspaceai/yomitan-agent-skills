@@ -1,5 +1,7 @@
 # yomitan-agent-skills
 
+[![skills.sh](https://skills.sh/b/philiaspaceai/yomitan-agent-skills)](https://skills.sh/philiaspaceai/yomitan-agent-skills)
+
 Agent skill for working with **Yomitan dictionaries** in Node.js via [`yomitan-tools`](https://github.com/philiaspaceai/yomitan-tools) — search, read, render, validate, and edit any Yomitan-format dictionary (`.zip` or extracted folder), with entries rendered to human-readable Markdown.
 
 ## Install
