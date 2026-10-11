@@ -1,10 +1,10 @@
-# yomitan-agent-skills
+# Yomitan Agent Skills — Japanese Dictionaries for AI Agents
 
 [![Install via skills.sh](https://img.shields.io/badge/skills.sh-install-green)](https://skills.sh/philiaspaceai/yomitan-agent-skills)
 
 ![banner](./banner.png)
 
-Agent skill for working with **Yomitan dictionaries** in Node.js via [`yomitan-tools`](https://github.com/philiaspaceai/yomitan-tools) — search, read, render, validate, and edit any Yomitan-format dictionary (`.zip` or extracted folder), with entries rendered to human-readable Markdown.
+Agent skills for working with **Japanese dictionaries in Yomitan format** (JMdict, kokugo & 100+ more) in Node.js via [`yomitan-tools`](https://github.com/philiaspaceai/yomitan-tools) — search, read, render, validate, and edit any Yomitan-format dictionary (`.zip` or extracted folder), with entries rendered to human-readable Markdown.
 
 ## Install
 
