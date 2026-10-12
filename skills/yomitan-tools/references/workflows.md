@@ -1,5 +1,18 @@
 # Workflows
 
+## Starting from zero (`initDictionary`)
+
+```js
+const dict = await initDictionary('./my-dict.zip', {title: 'Kamus Baru', revision: '1.0.0'});
+await dict.addEntry('term', ['猫', 'ねこ', 'n', '', 0, ['cat'], -1, '']);
+await dict.save();
+await dict.close();
+```
+
+- Bad `title`/`revision`/`format` is rejected before anything is written — the target stays untouched.
+- Existing path + no `overwrite: true` → refusal; with `overwrite: true` the old content is deleted first.
+- Then the normal flow applies: `addEntry` → `validate()` → `save()` → `close()`.
+
 ## Staged-save (the only safe mutation flow)
 
 `addEntry` / `updateEntry` / `deleteEntry` / `setIndex` touch memory only. Persist with:

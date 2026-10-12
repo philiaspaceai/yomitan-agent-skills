@@ -1,12 +1,13 @@
-# API Reference — `yomitan-tools@0.1.0`
+# API Reference — `yomitan-tools@0.2.0`
 
-Node >= 22, ESM (`import {openDictionary} from 'yomitan-tools'`). All methods are async unless noted. Mutations are staged in memory until `save()` / `saveAs()`.
+Node >= 22, ESM (`import {openDictionary, initDictionary} from 'yomitan-tools'`). All methods are async unless noted. Mutations are staged in memory until `save()` / `saveAs()`.
 
-## Open / close
+## Open / create / close
 
 | Call | Notes |
 |---|---|
 | `openDictionary(path)` | Open a `.zip` or extracted directory. Returns `dict` with `.title`, `.version` (1/2/3), `.kind` (`zip`/`dir`), `.path`. |
+| `initDictionary(path, opts)` | Create a new empty dictionary and open it. Required: `title` + `revision` (validated before touching disk). Optional: `format` (default 3), `sequenced`, `frequencyMode`, `isUpdatable`, `author`, `description`, `attribution`, `url`, `sourceLanguage`, `targetLanguage`, `minimumYomitanVersion`, `indexUrl`, `downloadUrl`, `styles` (string → `styles.css`). `.zip` target → zip file, else directory. Refuses existing paths unless `overwrite: true` (then deletes + recreates). Result validates clean with 0 entries — fill with `addEntry()`. |
 | `dict.close()` | Release the archive handle. Always call it. |
 
 ## Explore

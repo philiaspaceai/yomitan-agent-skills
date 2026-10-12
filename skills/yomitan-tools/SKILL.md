@@ -5,12 +5,12 @@ description: Use when working with Yomitan dictionaries in Node.js - searching, 
 
 # Yomitan Tools
 
-Work with Yomitan dictionaries (`.zip` or folder) from Node.js (ESM, >= 22) via `yomitan-tools` (`npm install yomitan-tools`): term/kanji banks plus term/kanji meta and tag banks — any language, v1/v2/v3, tiny or 600MB+.
+Work with Yomitan dictionaries (`.zip` or folder) from Node.js (ESM, >= 22) via `yomitan-tools` (`npm install yomitan-tools`): term/kanji banks plus term/kanji meta and tag banks — any language, v1/v2/v3.
 
 ## When to Use
 
-- Searching, reading, rendering, validating, or editing a Yomitan dictionary.
-- Reviewing an entry as Markdown (pitch, frequency, tag notes resolved).
+- Searching, reading, rendering, validating, editing, or creating a Yomitan dictionary.
+- Reviewing entries as Markdown (pitch, frequency, tags resolved).
 
 ## When NOT to Use
 
@@ -23,8 +23,9 @@ Work with Yomitan dictionaries (`.zip` or folder) from Node.js (ESM, >= 22) via 
 | Goal | Call |
 |---|---|
 | Open | `openDictionary(path)` (`.zip` or dir) |
+| Create | `initDictionary(path, {title, revision})` (empty dict, valid from first byte; `format?`, `overwrite?`) |
 | Explore | `listBanks()` |
-| Search | `searchTerms(q)` / `searchKanji` / `searchTermMeta` / `searchKanjiMeta` / `searchTags` (`match: exact\|prefix\|includes`, default `exact`; `limit` default 50, max 5000; `offset`, `bankFile`) |
+| Search | `searchTerms(q)` / `searchKanji` / `searchTermMeta` / `searchKanjiMeta` / `searchTags` (`match` default `exact`; `limit` default 50, max 5000; `offset`, `bankFile`) |
 | Read | `getBank(file)` / `getEntry(ref)` |
 | Review | `render(ref, {maxChars})` / `renderRaw(type, tuple)` |
 | Change (staged) | `addEntry(type, tuple)` / `updateEntry(ref, tuple)` / `deleteEntry(ref)` / `setIndex(obj)` |
@@ -39,12 +40,12 @@ Every hit carries `ref: {bankFile, bankType, entryIndex}` — pass it back to `g
 ```js
 import {openDictionary} from 'yomitan-tools';
 
-const dict = await openDictionary('./dict.zip'); // or extracted dir
-const hits = await dict.searchTerms('打つ'); // exact on expression/reading
+const dict = await openDictionary('./dict.zip'); // or dir
+const hits = await dict.searchTerms('打つ'); // exact match
 console.log(await dict.render(hits[0].ref)); // Markdown review
 await dict.updateEntry(hits[0].ref, [...editedTuple]); // staged only
 console.log(await dict.validate()); // validate BEFORE save
-await dict.save(); // or saveAs('copy.zip') to keep the original
+await dict.save(); // or saveAs() to keep original
 await dict.close(); // always close
 ```
 
@@ -53,11 +54,11 @@ await dict.close(); // always close
 - Staging edits without `save()` — nothing persists.
 - Tuples as objects — entries are positional Arrays (see `references/tuples.md`).
 - `countEntries()` / full `validate()` on 600MB+ dicts — use `validateFile()` per bank (see `references/workflows.md`).
-- Expecting `validate` / `add` / `update` to accept v1 entries with definitions — refused like Yomitan itself; read/search/render still work.
+- Expecting `validate`/`add`/`update` to accept v1 entries with definitions — refused like Yomitan; read/search/render still work.
 - Empty results — default `match` is `exact`; try `prefix` or `includes`.
 
 ## References
 
 - `references/api.md` — methods, options, standalone functions.
 - `references/tuples.md` — tuple shapes + examples.
-- `references/workflows.md` — staged-save, huge dicts, `saveAs`, v1 quirk, media.
+- `references/workflows.md` — staged-save, huge dicts, `saveAs`, v1 quirk, media, from-zero.

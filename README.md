@@ -24,6 +24,7 @@ npm install yomitan-tools
 - **Render** any entry to Markdown with pitch accent, frequency, and tag notes resolved.
 - **Edit** with staged, schema-checked `add` / `update` / `delete` + atomic `save()` / `saveAs()`.
 - **Validate** like Yomitan itself (schema + structural + media-reference checks).
+- **Create** new dictionaries from zero (`initDictionary`) — valid from the first byte.
 - **Stay safe** on huge dictionaries (`validateFile()` per touched bank, small `limit` + `offset` paging).
 
 ## Layout
